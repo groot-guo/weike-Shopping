@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    购物车
+{% endblock %}
+
+{% block article %}
+    <article>
+        <div class="">
+            <div class="w inner">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="list-group">
+                                <a href="{% url 'user_index' %}" class="list-group-item ">
+                                    个人信息
+                                </a>
+                                <a href="{% url 'user_course' %}" class="list-group-item">我的课程</a>
+                                <a href="{% url 'user_shoppingCart' %}" class="list-group-item active">购物车</a>
+                            </div>
+                        </div>
+                        <!--个人信息-->
+                        <div class="col-md-10">
+                            <div class="panel panel-default ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">购物车信息</h3>
+                                </div>
+                                <div class="panel-body ">
+                                    <div class="col-lg-6 col-lg-offset-2">
+                                        <h1>{{ message }}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

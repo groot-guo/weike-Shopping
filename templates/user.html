@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    个人信息
+{% endblock %}
+
+{% block article %}
+    <article>
+        <div class="">
+            <div class="w inner">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="list-group">
+                                <a href="{% url 'user_index' %}" class="list-group-item active">
+                                    个人信息
+                                </a>
+                                <a href="{% url 'user_course' %}" class="list-group-item">我的课程</a>
+                                <a href="{% url 'user_shoppingCart' %}" class="list-group-item">购物车</a>
+                            </div>
+                        </div>
+                        <!--个人信息-->
+                        <div class="col-md-10">
+                            <div class="panel panel-default ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">个人信息</h3>
+                                </div>
+                                <div class="panel-body ">
+                                    <div class="col-lg-6 col-lg-offset-2">
+                                        <ul>
+                                            <li>
+                                                <label>账号：</label><span>{{ user.account }}</span>
+                                            </li>
+                                            <li>
+                                                <label>余额：</label><span>{{ user.money }}</span>
+                                            </li>
+                                        </ul>
+                                        <form action="{% url 'user_index' %}" method="post">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <label for="username">用户名</label>
+                                                <input type="text" name="username" id="username" class="form-control" value="{{ user.username }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="gender">性别：</label>
+                                                {% if not user.gender %}
+                                                    <input type="radio" name="gender" id="gender" value="0" checked>男
+                                                    <input type="radio" name="gender" id="gender" value="1">女
+                                                {% else %}
+                                                    <input type="radio" name="gender" id="gender" value="0">男
+                                                    <input type="radio" name="gender" id="gender" value="1" checked>女
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tel">手机号</label>
+                                                <input type="tel" name="tel" id="tel" class="form-control" value="{{ user.tel }}">
+                                            </div>
+                                            <input type="submit" value="修改" class="btn btn-default">
+                                            <input type="reset" value="重置" class="btn btn-warning">
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

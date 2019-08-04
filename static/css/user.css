@@ -1,0 +1,108 @@
+body {
+    background-color: #f3f5f7;
+}
+
+header {
+    width: 1340px;
+    height: 90px;
+    /* background-color: pink; */
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.logo {
+    width: 195px;
+    height: 42px;
+    float: left;
+}
+
+.logo a {
+    display: block;
+    width: 195px;
+    height: 42px;
+    background: url(../images/logo.png) no-repeat -70px -70px;
+    text-indent: -999px;
+    overflow: hidden,
+}
+
+nav {
+    float: left;
+    margin-left: 20px;
+}
+
+nav li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 25px;
+}
+
+nav li a {
+    display: block;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search {
+    margin-left: 320px;
+}
+
+.personal {
+    float: right;
+    height: 40px;
+    line-height: 40px;
+}
+
+.personal dt, .personal dd {
+    float: left;
+    margin-left: 10px;
+}
+
+.personal dd {
+    padding-right: 20px;
+}
+
+.personal span img {
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.6s;
+}
+
+.personal span img:hover {
+    transform: rotate(180deg);
+}
+
+.banner{
+    margin-top: 40px;
+}
+
+footer {
+    height: 420px;
+    background-color: #fff;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+.footer-l {
+    margin-left: 20px;
+}
+
+.footer-l p {
+    margin: 25px 0 15px 0;
+    line-height: 24px;
+}
+
+.footer-l a {
+    width: 120px;
+    height: 35px;
+    display: block;
+    border: 1px solid #22b0ff;
+    text-align: center;
+    line-height: 35px;
+    color: #22b0ff;
+}

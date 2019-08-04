@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Python 语言基础
+{% endblock %}
+
+{% block article %}
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-2">
+                    <img src="/{{ course.imgName }}" alt="">
+                </div>
+                <div class="col-md-5">
+                    <h1>{{ course.courseName }}</h1>
+                    <p>课程种类：{{ course.pCategory.name }}</p>
+                    <p>发布时间: {{ course.createDatetime|date:"Y-m-d" }}</p>
+                    <p>价格：<span>{{ course.price }}</span></p>
+                    <p>
+                        {% if not  view_perssion %}
+                            <a href="{% url 'user_addShoppingCart' course.id %}" class="btn btn-default">加入购物车</a>
+                            <a href="{% url 'user_purchase' course.id %} " class="btn btn-warning">立即购买</a>
+                        {% else %}
+                            <a href="{% url 'course_video' course.id %}" class="btn btn-info">立即观看</a>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <h2>课程介绍</h2>
+                <p>{{ course.summary }}</p>
+            </div>
+        </div>
+    </article>
+{% endblock %}

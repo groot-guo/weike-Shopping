@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block article %}
+    <!-- 中间图片 -->
+    <div class="banner">
+        <div class="w inner">
+            <ul>
+                <li><a href=""><img src="/static/images/banner.jpg" alt=""></a></li>
+            </ul>
+            <!-- 小圆点 -->
+            <div class="circle">
+                <i class="current"></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 精品推荐 -->
+    <div class="recommend w">
+        <div class="rec-l">
+            <strong>精品推荐</strong> |
+            <a href="#">jQuery</a> |
+            <a href="#">Spark</a> |
+            <a href="#">MySQL</a> |
+            <a href="#">JavaWeb</a> |
+            <a href="#">MySQL</a> |
+            <a href="#">JavaWeb</a> |
+        </div>
+        <em>修改兴趣</em>
+    </div>
+
+    <!-- 精品 -->
+    <div class="products w">
+        {% for course_data in course_data_s %}
+            <div class="pro-hd">
+                <h4>{{ course_data.category }}</h4>
+                <a href="#">查看全部</a>
+            </div>
+            <div class="pro-bd clearfix">
+                <ul>
+                    {% for course in course_data.course_s %}
+                        <li>
+                            <a href="{% url 'course_course' course.id %}">
+                                <div class="pic">
+                                    <img src="/{{ course.imgName }}" alt="">
+                                    <a href=""></a>
+                                </div>
+                                <div class="pro-title">
+                                    {{ course.courseName }}
+                                </div>
+                                <p><span>高级</span> •{{ course.price }}</p>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
